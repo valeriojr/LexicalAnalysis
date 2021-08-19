@@ -1,0 +1,9 @@
+int main(string[] args) {
+    int a = 1;
+
+    while(a < 100) {
+        a = a * 2;
+    }
+
+    return 0;
+}
