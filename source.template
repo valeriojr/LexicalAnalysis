@@ -1,0 +1,31 @@
+/*
+    Auto generated on {date}
+*/
+
+#include <iostream>
+#include <string>
+
+#include "header.h"
+
+const char TokenCategoryNames[TOKEN_CATEGORY_COUNT][TOKEN_CATEGORY_NAME_MAX_LEN] = {{
+{category_names}
+}};
+
+
+std::unordered_map<char, int> transitions[STATE_COUNT] = {{
+{transitions}
+}};
+
+const TokenCategory stateToken[STATE_COUNT] = {{
+{state_tokens}
+}};
+
+std::unordered_map<std::string, int> keywords = std::unordered_map<std::string, int>({{
+{keywords}
+}});
+
+
+std::ostream& operator<<(std::ostream& stream, const TokenCategory& category) {{
+    stream << TokenCategoryNames[category];
+    return stream;
+}}

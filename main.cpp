@@ -1,121 +1,53 @@
 #include <iostream>
-#include <iomanip>
 #include <fstream>
-#include <vector>
 #include <cstring>
 
 #include "header.h"
+#include "Token.h"
+#include "Scanner.h"
 
 
-struct Token {
-    TokenCategory category;
-    std::string lexeme;
-    int line, column;
-};
-
-
-std::ostream &operator<<(std::ostream &stream, const Token &token) {
-    printf("              [%04d, %04d] (%04d, %20s) {%s}", token.line, token.column, token.category,
-           TokenCategoryNames[token.category], token.lexeme.c_str());
-/*
-    std::cout << "              ";
-    std::cout << "[" << token.line << ", " << token.column << "]";
-    std::cout << ' ';
-    std::cout << "(" << (int) token.category << ", " << token.category << ")";
-    std::cout << "{" << token.lexeme << "}";
-*/
-    return stream;
-}
-
-
-void postProcessToken(Token &token) {
-    if (token.category == TokenCategory::Identifier) {
-        if (keywords.find(token.lexeme) != keywords.end()) {
-            token.category = (TokenCategory) keywords[token.lexeme];
-        }
-    }
-}
-
-
-class Scanner {
-private:
-    int lineNumber;
-    int column{};
-    std::string line;
-    std::ifstream &input;
-
-    bool bufferLine();
-
-public:
-    explicit Scanner(std::ifstream &input) : input(input) {
-        lineNumber = 0;
-        column = 1;
+int main(int argc, char **argv) {
+    if (argc < 2) {
+        std::cout << "Usage: LexicalAnalysis <source file>" << std::endl;
+        return 0;
     }
 
-    Token getNextToken();
-};
+    std::ifstream source(argv[1]);
 
-
-int main() {
-    std::ifstream source("main.txt");
     if (source.is_open()) {
-        Scanner scanner(source);
+        Scanner scanner;
 
-        std::vector<Token> tokens;
-        Token token = scanner.getNextToken();
-        while(!source.eof()) {
-            std::cout << token << std::endl;
+        // Lê o arquivo-fonte linha por linha
+        for (std::string line; std::getline(source, line);) {
+            std::cout << "`" << line << "`" << std::endl;
 
-            tokens.push_back(token);
-            token = scanner.getNextToken();
+            /* Chama a função getNextToken do scanner passando a linha atual. Cada chamada retorna um token.
+             * Quando a linha é consumida por completo retorna um token do tipo EndOfLine, que indica que é necessário
+             * ler a próxima linha. A cada vez que o token EOL é emitido a linha do scanner é incrementada. Portanto,
+             * para evitar erros na recuperação de erros, cada linha só pode ser passada por completo uma vez.
+             * */
+            Token token = scanner.getNextToken(line);
+            while (token.category != TokenCategory::EndOfLine) {
+                std::cout << token << std::endl;
+                token = scanner.getNextToken(line);
+            }
         }
-    }
-    else {
-        std::cout << strerror(errno);
+    } else {
+        // Exibe uma mensagem de erro caso o arquivo não possa ser aberto
+        std::cout << strerror(errno) << std::endl;
     }
 
     return 0;
 }
 
+/*
+ * Imprime na tela o token seguindo o formato exigido na especificação
+ * */
 
-Token Scanner::getNextToken() {
-    int state = 0;
-    Token token;
+std::ostream &operator<<(std::ostream &stream, const Token &token) {
+    printf("              [%04d, %04d] (%04d, %20s) {%s}", token.line, token.column, token.category,
+           TokenCategoryNames[token.category], token.lexeme.c_str());
 
-    if (column >= line.size() && !bufferLine() && line.empty()) {
-        token.category = TokenCategory::Invalid; // EOF
-        return token;
-    }
-
-    while (column < line.size() && std::isspace(line[column]))
-        column++;
-
-    token.line = lineNumber;
-    token.column = column;
-    while (transitions[state].find(line[column]) != transitions[state].end()) {
-        state = transitions[state][line[column]];
-        column++;
-
-        if(column >= line.size())
-            break;
-    }
-
-    token.category = stateToken[state];
-    if (token.category != TokenCategory::Invalid) {
-        token.lexeme = line.substr(token.column, column - token.column);
-        postProcessToken(token);
-    }
-
-    return token;
-}
-
-
-bool Scanner::bufferLine() {
-    std::getline(input, line);
-    lineNumber++;
-    column = 0;
-
-    std::cout << "`" << line << "`" << std::endl;
-
-    return !input.eof();
+    return stream;
 }

@@ -1,0 +1,28 @@
+/*
+    Auto generated on {date}
+*/
+
+#pragma once
+
+#include <unordered_map>
+
+#define TOKEN_CATEGORY_NAME_MAX_LEN 20
+#define TOKEN_CATEGORY_COUNT {len_tokens}
+#define STATE_COUNT {len_nodes}
+
+
+enum TokenCategory {{
+    EndOfFile = -3,
+    EndOfLine = -2,
+    Invalid = -1,
+{categories}
+}};
+
+
+extern const char TokenCategoryNames[TOKEN_CATEGORY_COUNT][TOKEN_CATEGORY_NAME_MAX_LEN];
+extern std::unordered_map<char, int> transitions[STATE_COUNT];
+extern const TokenCategory stateToken[STATE_COUNT];
+extern std::unordered_map<std::string, int> keywords;
+
+
+std::ostream& operator<<(std::ostream& stream, const TokenCategory& category);

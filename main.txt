@@ -1,9 +1,4 @@
-int main(string[] args) {
-    int a = 1;
-
-    while(a < 100) {
-        a = a * 2;
-    }
-
-    return 0;
+for (int i in [... 10, 2]) {
+    print(i);
 }
+
