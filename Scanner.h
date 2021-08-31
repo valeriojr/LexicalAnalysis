@@ -15,10 +15,11 @@ private:
     int column;
 
 
-    static void postProcess(Token& token);
+    void postProcess(Token& token);
+    void ignoreWhitespaces(const std::string& line);
 
 public:
     Scanner();
-
     Token getNextToken(const std::string& line);
+    void onEndOfLine();
 };

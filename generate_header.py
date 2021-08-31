@@ -8,7 +8,8 @@ transition_sets = {
     'dig': string.digits[1:],
     'Dig': string.digits,
     'let': string.ascii_letters,
-    'char': string.printable
+    'char': string.printable,
+    'char_without_slash_and_star': string.printable.replace('/', '').replace('*', '')
 }
 
 # Lista de palavras especiais e as categorias correspondentes

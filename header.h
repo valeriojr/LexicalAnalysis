@@ -1,5 +1,5 @@
 /*
-    Auto generated on 29/08/2021
+    Auto generated on 31/08/2021
 */
 
 #pragma once
@@ -7,8 +7,8 @@
 #include <unordered_map>
 
 #define TOKEN_CATEGORY_NAME_MAX_LEN 20
-#define TOKEN_CATEGORY_COUNT 41
-#define STATE_COUNT 43
+#define TOKEN_CATEGORY_COUNT 42
+#define STATE_COUNT 44
 
 
 enum TokenCategory {
@@ -22,40 +22,41 @@ enum TokenCategory {
 	CloseBrackets = 4,
 	CloseParenthesis = 5,
 	Comma = 6,
-	Dot = 7,
-	Ellipsis = 8,
-	Else = 9,
-	Float = 10,
-	For = 11,
-	Identifier = 12,
-	If = 13,
-	Integer = 14,
-	OpAdd = 15,
-	OpAnd = 16,
-	OpDiv = 17,
-	OpEq = 18,
-	OpGt = 19,
-	OpGte = 20,
-	OpLt = 21,
-	OpLte = 22,
-	OpMod = 23,
-	OpMul = 24,
-	OpNeq = 25,
-	OpNot = 26,
-	OpOr = 27,
-	OpSub = 28,
-	OpenBraces = 29,
-	OpenBrackets = 30,
-	OpenParenthesis = 31,
-	Return = 32,
-	SemiColon = 33,
-	String = 34,
-	TypeBool = 35,
-	TypeChar = 36,
-	TypeFloat = 37,
-	TypeInt = 38,
-	TypeString = 39,
-	While = 40
+	Comment = 7,
+	Dot = 8,
+	Ellipsis = 9,
+	Else = 10,
+	Float = 11,
+	For = 12,
+	Identifier = 13,
+	If = 14,
+	Integer = 15,
+	OpAdd = 16,
+	OpAnd = 17,
+	OpDiv = 18,
+	OpEq = 19,
+	OpGt = 20,
+	OpGte = 21,
+	OpLt = 22,
+	OpLte = 23,
+	OpMod = 24,
+	OpMul = 25,
+	OpNeq = 26,
+	OpNot = 27,
+	OpOr = 28,
+	OpSub = 29,
+	OpenBraces = 30,
+	OpenBrackets = 31,
+	OpenParenthesis = 32,
+	Return = 33,
+	SemiColon = 34,
+	String = 35,
+	TypeBool = 36,
+	TypeChar = 37,
+	TypeFloat = 38,
+	TypeInt = 39,
+	TypeString = 40,
+	While = 41
 };
 
 

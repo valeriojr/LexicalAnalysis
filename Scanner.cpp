@@ -9,12 +9,20 @@
 
 
 void Scanner::postProcess(Token &token) {
-    if (token.category == TokenCategory::Identifier) {
-        // Verifica se o identificador, na verdade, é uma palavra especial. Caso positivo a categoria passa a ser a da
-        // tal palavra
-        if (keywords.find(token.lexeme) != keywords.end()) {
-            token.category = (TokenCategory) keywords[token.lexeme];
-        }
+    switch (token.category) {
+        case TokenCategory::Comment:
+            token.category = TokenCategory::EndOfLine;
+            token.lexeme.clear();
+            onEndOfLine();
+            break;
+
+        case TokenCategory::Identifier:
+            // Verifica se o identificador, na verdade, é uma palavra especial. Caso positivo a categoria passa a ser a da
+            // tal palavra
+            if (keywords.find(token.lexeme) != keywords.end()) {
+                token.category = (TokenCategory) keywords[token.lexeme];
+            }
+            break;
     }
 }
 
@@ -25,31 +33,31 @@ Scanner::Scanner() {
 }
 
 
-Token Scanner::getNextToken(const std::string& line) {
+void Scanner::ignoreWhitespaces(const std::string &line) {
+    // Come os espaços em branco
+    while (column <= line.size() && std::isspace(line[column - 1])) {
+        column++;
+    }
+}
+
+
+Token Scanner::getNextToken(const std::string &line) {
+    ignoreWhitespaces(line);
+
     char c = line[column - 1];
     int state = 0;
-    Token token = {TokenCategory::Invalid};
-
-    // Come os espaços em branco
-    while(column <= line.size() && std::isspace(c)){
-        column++;
-        c = line[column - 1];
-    }
-
-    token.column = column;
-    token.line = lineNumber;
+    Token token = {TokenCategory::Invalid, lineNumber, column};
 
     // Checa se a linha foi totalmente processada
-    if(column > line.size()) {
+    if (column > line.size()) {
         // Retorna um token EOL que "avisa" ao analisador que pode ler a próxima linha
         token.category = TokenCategory::EndOfLine;
-        lineNumber++;
-        column = 1;
+        onEndOfLine();
         return token;
     }
 
     // Caminha no grafo
-    while(transitions[state].find(c) != transitions[state].end()) {
+    while (transitions[state].find(c) != transitions[state].end()) {
         state = transitions[state][c];
         column++;
         c = line[column - 1];
@@ -61,11 +69,15 @@ Token Scanner::getNextToken(const std::string& line) {
     // Pós processamento do token, para tratar casos especiais
     if (token.category != TokenCategory::Invalid) {
         postProcess(token);
-    }
-    else {
-        // Se não foi possível reconhecer um token válido então avança a coluna para evitar loops infinitos
+    } else {
+        // Se não foi possível reconhecer um token válido então avança a coluna para evitar ‘loops’ infinitos
         column++;
     }
 
     return token;
+}
+
+void Scanner::onEndOfLine() {
+    lineNumber++;
+    column = 1;
 }
