@@ -1,0 +1,30 @@
+// Serie de Fibonacci
+//
+// Dado um valor limite lista todos os numeros
+// da serie de Fibonacci menores que ele
+// separados por virgula
+//
+// Criado por Valerio Nogueira em 31/08/2021
+
+proc fibonacci(int limite) {
+    int a = 1;
+    int b = 1;
+    int c = a + b;
+
+    print(a, ", ", b);
+    while (c < limite) {
+        print(c, ", ");
+        a = b;
+        b = c;
+        c = a + b;
+    }
+}
+
+func main(string[] args) -> int {
+    int limite;
+    scan(limite);
+
+    fibonacci(limite);
+
+    return 0;
+}

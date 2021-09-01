@@ -12,8 +12,6 @@
 
 
 enum TokenCategory {{
-    EndOfFile = -3,
-    EndOfLine = -2,
     Invalid = -1,
 {categories}
 }};

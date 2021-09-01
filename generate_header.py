@@ -14,18 +14,26 @@ transition_sets = {
 
 # Lista de palavras especiais e as categorias correspondentes
 keywords = {
-    'if': 'If',
-    'for': 'For',
-    'while': 'While',
-    'else': 'Else',
-    'true': 'Bool',
-    'false': 'Bool',
     'bool': 'TypeBool',
+    'break': 'Break',
+    'by': 'By',
     'char': 'TypeChar',
-    'int': 'TypeInt',
+    'if': 'If',
+    'else': 'Else',
+    'false': 'Bool',
     'float': 'TypeFloat',
-    'string': 'TypeString',
+    'for': 'For',
+    'func': 'Func',
+    'int': 'TypeInt',
+    'in': 'In',
+    'print': 'Print',
+    'proc': 'Proc',
     'return': 'Return',
+    'scan': 'Scan',
+    'skip': 'Skip',
+    'string': 'TypeString',
+    'true': 'Bool',
+    'while': 'While',
 }
 
 

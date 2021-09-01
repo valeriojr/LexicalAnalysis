@@ -1,5 +1,5 @@
 /*
-    Auto generated on 31/08/2021
+    Auto generated on 01/09/2021
 */
 
 #pragma once
@@ -7,56 +7,63 @@
 #include <unordered_map>
 
 #define TOKEN_CATEGORY_NAME_MAX_LEN 20
-#define TOKEN_CATEGORY_COUNT 42
-#define STATE_COUNT 44
+#define TOKEN_CATEGORY_COUNT 51
+#define STATE_COUNT 45
 
 
 enum TokenCategory {
-    EndOfFile = -3,
-    EndOfLine = -2,
     Invalid = -1,
-	Assignment = 0,
-	Bool = 1,
-	Character = 2,
-	CloseBraces = 3,
-	CloseBrackets = 4,
-	CloseParenthesis = 5,
-	Comma = 6,
-	Comment = 7,
-	Dot = 8,
-	Ellipsis = 9,
-	Else = 10,
-	Float = 11,
-	For = 12,
-	Identifier = 13,
-	If = 14,
-	Integer = 15,
-	OpAdd = 16,
-	OpAnd = 17,
-	OpDiv = 18,
-	OpEq = 19,
-	OpGt = 20,
-	OpGte = 21,
-	OpLt = 22,
-	OpLte = 23,
-	OpMod = 24,
-	OpMul = 25,
-	OpNeq = 26,
-	OpNot = 27,
-	OpOr = 28,
-	OpSub = 29,
-	OpenBraces = 30,
-	OpenBrackets = 31,
-	OpenParenthesis = 32,
-	Return = 33,
-	SemiColon = 34,
-	String = 35,
-	TypeBool = 36,
-	TypeChar = 37,
-	TypeFloat = 38,
-	TypeInt = 39,
-	TypeString = 40,
-	While = 41
+	Arrow = 0,
+	Assignment = 1,
+	Bool = 2,
+	Break = 3,
+	By = 4,
+	Character = 5,
+	CloseBraces = 6,
+	CloseBrackets = 7,
+	CloseParenthesis = 8,
+	Comma = 9,
+	Dot = 10,
+	Ellipsis = 11,
+	Else = 12,
+	EndOfLine = 13,
+	Float = 14,
+	For = 15,
+	Func = 16,
+	Identifier = 17,
+	If = 18,
+	In = 19,
+	Integer = 20,
+	OpAdd = 21,
+	OpAnd = 22,
+	OpDiv = 23,
+	OpEq = 24,
+	OpGt = 25,
+	OpGte = 26,
+	OpLt = 27,
+	OpLte = 28,
+	OpMod = 29,
+	OpMul = 30,
+	OpNeq = 31,
+	OpNot = 32,
+	OpOr = 33,
+	OpSub = 34,
+	OpenBraces = 35,
+	OpenBrackets = 36,
+	OpenParenthesis = 37,
+	Print = 38,
+	Proc = 39,
+	Return = 40,
+	Scan = 41,
+	SemiColon = 42,
+	Skip = 43,
+	String = 44,
+	TypeBool = 45,
+	TypeChar = 46,
+	TypeFloat = 47,
+	TypeInt = 48,
+	TypeString = 49,
+	While = 50
 };
 
 

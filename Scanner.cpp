@@ -10,9 +10,7 @@
 
 void Scanner::postProcess(Token &token) {
     switch (token.category) {
-        case TokenCategory::Comment:
-            token.category = TokenCategory::EndOfLine;
-            token.lexeme.clear();
+        case TokenCategory::EndOfLine:
             onEndOfLine();
             break;
 

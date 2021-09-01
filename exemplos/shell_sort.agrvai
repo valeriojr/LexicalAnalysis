@@ -1,0 +1,44 @@
+// Shell sort
+//
+// Ordena um array de inteiros
+//
+// Criado por Valerio Nogueira em 01/08/2021 (Adaptado de https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OShellSort.html)
+
+func shell_sort(int n, int[] values) -> int[] {
+    int c = n / 2;
+    while(c > 0) {
+        for(int start in [0 ... c]) {
+            gap_insertion_sort(n, values, start, c);
+
+            for(int i in [start + c ... n] by c) {
+                int current_value = values[i];
+                int position = i;
+
+                while (position >= c && values[position - c] > current_values) {
+                    values[position] = values[position - c];
+                    position = position - c;
+                }
+            }
+
+            c = c/2;
+        }
+    }
+
+    return values;
+}
+
+func main(string[] args) -> int {
+    int n;
+    int[] values;
+
+    scan(n);
+    for(int i in [0 ... n]) {
+        scan(values[i]);
+    }
+
+    values = shell_sort(n, values);
+
+    print(values);
+
+    return 0;
+}

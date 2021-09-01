@@ -1,0 +1,11 @@
+// Ola mundo
+//
+// Exibe a mensagem "Ola mundo!"
+//
+// Criado por Valerio Nogueira em 31/08/2021
+
+func main(string[] args) -> int {
+    print("Ola mundo!");
+
+    return 0;
+}
