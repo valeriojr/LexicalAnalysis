@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv) {
     if (argc < 2) {
-        std::cout << "Usage: LexicalAnalysis <source file>" << std::endl;
+        std::cout << "Usage: Agoravai <source file>" << std::endl;
         return 0;
     }
 

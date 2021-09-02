@@ -9,7 +9,6 @@ transition_sets = {
     'Dig': string.digits,
     'let': string.ascii_letters,
     'char': string.printable,
-    'char_without_slash_and_star': string.printable.replace('/', '').replace('*', '')
 }
 
 # Lista de palavras especiais e as categorias correspondentes
@@ -106,6 +105,9 @@ def main():
                 ['\t' + n['text'].replace(' ', '') if n['isAcceptState'] else '\tInvalid' for n in automaton['nodes']]),
             'keywords': ',\n'.join([f'\t{{"{kw}", {tc}}}' for kw, tc in keywords.items()])
         }))
+
+    with open('token_table.tex', 'w') as f:
+        f.write('\n'.join([rf'{category} & {i} \\' for i, category in enumerate(categories)]))
 
 
 if __name__ == '__main__':
