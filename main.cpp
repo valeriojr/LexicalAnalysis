@@ -33,6 +33,7 @@ int main(int argc, char **argv) {
                 token = scanner.getNextToken(line);
             }
         }
+
     } else {
         // Exibe uma mensagem de erro caso o arquivo não possa ser aberto
         std::cout << strerror(errno) << std::endl;
@@ -44,7 +45,6 @@ int main(int argc, char **argv) {
 /*
  * Imprime na tela o token seguindo o formato exigido na especificação
  * */
-
 std::ostream &operator<<(std::ostream &stream, const Token &token) {
     printf("              [%04d, %04d] (%04d, %20s) {%s}", token.line, token.column, token.category,
            TokenCategoryNames[token.category], token.lexeme.c_str());

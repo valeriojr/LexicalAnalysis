@@ -1,0 +1,205 @@
+\subsection{Especificação de tipos}
+
+\subsubsection{bool}
+Representa valores booleanos.
+
+\paragraph{Constantes}
+Os únicos valores possíveis são \texttt{true} (verdadeiro) e \texttt{false} (falso).
+
+\paragraph{Operadores} A tabela \ref{tab:operadores-bool} mostra os operadores para valores do tipo \textbf{bool}. Considere que \texttt{a} e \texttt{b} são duas variáveis \textbf{bool}.
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{ l c c l }
+        Operador      & Associatividade & Precedência & Descrição                \\
+        \hline
+        \texttt{==}   & Esquerda & 1 & \texttt{a} é igual a \texttt{b}?          \\
+        \texttt{!=}   & Esquerda & 1 & \texttt{a} é diferente de \texttt{b}?     \\
+        \texttt{\&\&}   & Esquerda & 2 & \texttt{a} e \texttt{b} são verdadeiros?  \\
+        \texttt{||}   & Esquerda & 2 & \texttt{a} ou \texttt{b} são verdadeiros? \\
+        \texttt{!}    & Direita  & 3 & o inverso de \texttt{a}                   \\
+        \hline
+    \end{tabular}
+    \caption{Operadores do tipo \textbf{bool}}
+    \label{tab:operadores-bool}
+\end{table}
+
+\paragraph{Coerções} A tabela \ref{tab:coercoes-bool} mostra as possíveis coerções do tipo \textbf{bool}.
+\begin{table}[!h]
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Tipo            & Descrição                                                                         \\ \midrule
+        \textbf{int}    & Retorna \texttt{1} para \texttt{true} e \texttt{0} para \texttt{false}            \\
+        \textbf{string} & Retorna \texttt{"true"} para \texttt{true} e \texttt{"false"} para \texttt{false} \\ \bottomrule
+    \end{tabular}
+    \caption{Coerções do tipo bool}
+    \label{tab:coercoes-bool}
+\end{table}
+
+\subsubsection{char}
+Representa um caractere. O caractere deve pertencer à tabela ASCII. Caracteres de controle são representados por uma sequência de escape (ver tabela \ref{char_control_seq})
+
+\paragraph{Constantes} Um caractere ou uma sequência de escape entre \texttt{'} (apóstrofos). Ex.: \texttt{'a'}, \texttt{'0'}, \texttt{'\\n'}.
+
+\paragraph{Operadores}  A tabela \ref{tab:operadores-char} mostra os operadores para valores do tipo \textbf{char}. Considere que \texttt{a} e \texttt{b} são duas variáveis \textbf{char}.
+\begin{table}[!h]
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Operador    & Associatividade & Precedência & Descrição                                                    \\ \midrule
+        \texttt{==} & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?                             \\
+        \texttt{!=} & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?                        \\
+        \texttt{+}  & Esquerda        & 2           & \textbf{string} composta de \texttt{a} seguido de \texttt{b}
+    \end{tabular}
+    \caption{Operadores do tipo \textbf{char}}
+    \label{tab:operadores-char}
+\end{table}
+
+\paragraph{Coerções} A tabela \ref{tab:coercoes-char} mostra as possíveis coerções do tipo \textbf{char}.
+\begin{table}[!h]
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Tipo            & Descrição                                                      \\ \midrule
+        \textbf{int}    & Retorna o valor do caractere na tabela ASCII                   \\
+        \textbf{string} & Retorna uma \textbf{string} composta unicamente pelo caractere \\ \bottomrule
+    \end{tabular}
+    \caption{Coerções do tipo \textbf{char}}
+    \label{tab:coercoes-char}
+\end{table}
+
+\subsubsection{int}
+Representa números inteiros.
+
+\paragraph{Constantes} Sequência de dígitos (0 a 9), sem zeros à esquerda. Podem conter sinal ou não.
+
+\paragraph{Operadores} A tabela \ref{tab:operadores-int} mostra os operadores para valores do tipo \textbf{int}. Considere que \texttt{a} e \texttt{b} são duas variáveis \textbf{int}.
+\begin{table}[!h]
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Operador                 & Associatividade & Precedência & Descrição                                     \\ \midrule
+        \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?              \\
+        \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?         \\
+        \texttt{\textless{}}     &                 & 1           & \texttt{a} é menor que \texttt{b}?            \\
+        \texttt{\textless{}=}    &                 & 1           & \texttt{a} é menor ou igual a \texttt{b}?     \\
+        \texttt{\textgreater{}}  &                 & 1           & \texttt{a} é maior que \texttt{b}?            \\
+        \texttt{\textgreater{}=} &                 & 1           & \texttt{a} é maior ou igual a \texttt{b}?     \\
+        \texttt{+}               & Esquerda        & 2           & soma de \texttt{a} e \texttt{b}               \\
+        \texttt{-}               & Esquerda        & 2           & subtração de \texttt{a} por \texttt{b}        \\
+        \texttt{$*$}             & Direita         & 3           & produto de \texttt{a} e \texttt{b}            \\
+        \texttt{/}               & Direita         & 3           & divisão de \texttt{a} por \texttt{b}          \\
+        \texttt{\%}              & Direita         & 4           & resto da divisão de \texttt{a} por \texttt{b}
+    \end{tabular}
+    \caption{Operadores do tipo \textbf{int}}
+    \label{tab:operadores-int}
+\end{table}
+
+\paragraph{Coerções} A tabela \ref{tab:coercoes-int} mostra as possíveis coerções do tipo \textbf{int}.
+\begin{table}[!h]
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Tipo            & Descrição                                                                  \\ \midrule
+        \textbf{bool}   & Retorna \texttt{true} para números diferentes de 0 e \texttt{false} para 0 \\
+        \textbf{float}  & Retorna o número de ponto flutuante mais próximo                           \\
+        \textbf{string} & Retorna a \textbf{string} com a representação do número                    \\ \bottomrule
+    \end{tabular}
+    \caption{Coerções do tipo \textbf{int}}
+    \label{tab:coercoes-int}
+\end{table}
+
+\subsubsection{float}
+Representa números reais.
+
+\paragraph{Constantes} Sequência de dígitos (0 a 9) representando a parte inteira, seguida de \texttt{.} e por fim uma sequência de dígitos representando a parte decimal
+
+\paragraph{Operadores} A tabela \ref{tab:operadores-float} mostra os operadores para valores do tipo \textbf{float}. Considere que \texttt{a} e \texttt{b} são duas variáveis \textbf{float}.
+\begin{table}[!h]
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Operador                 & Associatividade & Precedência & Descrição                                 \\ \midrule
+        \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?          \\
+        \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?     \\
+        \texttt{\textless{}}     &                 & 1           & \texttt{a} é menor que \texttt{b}?        \\
+        \texttt{\textless{}=}    &                 & 1           & \texttt{a} é menor ou igual a \texttt{b}? \\
+        \texttt{\textgreater{}}  &                 & 1           & \texttt{a} é maior que \texttt{b}?        \\
+        \texttt{\textgreater{}=} &                 & 1           & \texttt{a} é maior ou igual a \texttt{b}? \\
+        \texttt{+}               & Esquerda        & 2           & soma de \texttt{a} e \texttt{b}           \\
+        \texttt{-}               & Esquerda        & 2           & subtração de \texttt{a} por \texttt{b}    \\
+        \texttt{$*$}             & Direita         & 3           & produto de \texttt{a} e \texttt{b}        \\
+        \texttt{/}               & Direita         & 3           & divisão de \texttt{a} por \texttt{b}      \\
+    \end{tabular}
+    \caption{Operadores do tipo \textbf{float}}
+    \label{tab:operadores-float}
+\end{table}
+
+\paragraph{Coerções} A tabela \ref{tab:coercoes-float} mostra as possíveis coerções do tipo \textbf{float}.
+\begin{table}[!h]
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Tipo            & Descrição                                               \\ \midrule
+        \textbf{string} & Retorna a \textbf{string} com a representação do número \\ \bottomrule
+    \end{tabular}
+    \caption{Coerções do tipo \textbf{float}}
+    \label{tab:coercoes-float}
+\end{table}
+
+\subsubsection{string}
+Representa uma cadeia de caracteres.
+
+\paragraph{Constantes}
+
+\paragraph{Operadores} A tabela \ref{tab:operadores-string} mostra os operadores para valores do tipo \textbf{string}. Considere que \texttt{a} e \texttt{b} são duas variáveis \textbf{string}.
+\begin{table}[!h]
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Operador                 & Associatividade & Precedência & Descrição                                      \\ \midrule
+        \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?               \\
+        \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?          \\
+        \texttt{\textless{}}     &                 & 1           & \texttt{a} vem antes de \texttt{b}?            \\
+        \texttt{\textless{}=}    &                 & 1           & \texttt{a} vem antes ou é igual a \texttt{b}?  \\
+        \texttt{\textgreater{}}  &                 & 1           & \texttt{a} vem depois de \texttt{b}?           \\
+        \texttt{\textgreater{}=} &                 & 1           & \texttt{a} vem depois ou é igual a \texttt{b}? \\
+        \texttt{+}               & Esquerda        & 2           & concatenação de \texttt{a} e \texttt{b}        \\
+    \end{tabular}
+    \caption{Operadores do tipo \textbf{string}}
+    \label{tab:operadores-string}
+\end{table}
+
+\paragraph{Coerções} A tabela \ref{tab:coercoes-string} mostra as possíveis coerções do tipo \textbf{string}.
+\begin{table}[!h]
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Tipo            & Descrição                                                                                         \\ \midrule
+        \textbf{char[]} & Retorna um \textit{array} de \textbf{char} onde os elementos são os caracteres da \textbf{string} \\ \bottomrule
+    \end{tabular}
+    \caption{Coerções do tipo \textbf{string}}
+    \label{tab:coercoes-string}
+\end{table}
+
+\subsubsection{Arrays}
+Representa uma coleção homôgenea de valores com tamanho fixo. A declaração de um array é feita de um tipo seguido de \texttt{[]}. Ex.: \textbf{string[]}, \textbf{int[]} etc. O tamanho pode ser explícito ou inferido a partir do valor inicial. Se for explícito só pode ser iniciado com um array de tamanho igual ou menor. Caso seja omitido, o array deverá ser inicializado e terá o tamanho do valor inicial.
+
+\paragraph{Constantes} Um array do tipo T é escrito como uma sequência de elementos do tipo T, separados por vírgula e entre colchetes. Ex.: \texttt{[0, 1, 2, 3]}, \texttt{['a', 'b', 'c', 'd', 'e']}. Também é possível criar um array com a sintaxe \texttt{[<inicio> ... <fim>]}, que cria um array com os elementos de inicio até fim (aberto) onde início e fim devem ser valores de tipos numéricos ou caracteres (coerção para \textbf{int}).
+
+\paragraph{Operadores} A tabela \ref{tab:operadores-array} mostra os operadores para \textit{arrays}. Considere que \texttt{a} e \texttt{b} são dois \textit{arrays}.
+\begin{table}[!h]
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Operador    & Associatividade & Precedência & Descrição                               \\ \midrule
+        \texttt{==} & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?        \\
+        \texttt{!=} & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?   \\
+        \texttt{+}  & Esquerda        & 2           & concatenação de \texttt{a} e \texttt{b} \\
+    \end{tabular}
+    \caption{Operadores de \textit{arrays}}
+    \label{tab:operadores-array}
+\end{table}
+
+\paragraph{Coerções} A tabela \ref{tab:coercoes-array} mostra as possíveis coerções de \textit{arrays}.
+\begin{table}[!h]
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Tipo            & Descrição                                                                                                                    \\ \midrule
+        \textbf{string} & Retorna uma \textbf{string} com a representação em \textbf{string} de cada elemento do \textit{array}, separados por vírgula \\ \bottomrule
+    \end{tabular}
+    \caption{Coerções de \textit{arrays}}
+    \label{tab:coercoes-array}
+\end{table}
+
+Para \textit{arrays} e \textbf{strings}, é possível acessar o $i$-ésimo elemento através de \texttt{[<indice>]}.

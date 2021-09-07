@@ -15,29 +15,27 @@ transition_sets = {
 keywords = {
     'bool': 'TypeBool',
     'break': 'Break',
-    'by': 'By',
     'char': 'TypeChar',
     'if': 'If',
     'else': 'Else',
     'false': 'Bool',
     'float': 'TypeFloat',
     'for': 'For',
-    'func': 'Func',
     'int': 'TypeInt',
     'in': 'In',
     'print': 'Print',
-    'proc': 'Proc',
     'return': 'Return',
     'scan': 'Scan',
     'skip': 'Skip',
     'string': 'TypeString',
     'true': 'Bool',
+    'void': 'Void',
     'while': 'While',
 }
 
 
 def main():
-    with open('automaton.json', 'r') as fp:
+    with open('../res/automaton.json', 'r') as fp:
         automaton = json.load(fp)
 
     # Obtém todas as categorias de tokens a partir dos nomes nos estados
@@ -79,17 +77,17 @@ def main():
     }
 
     # Carrega os templates
-    template_header = open('header.template', 'r').read()
-    template_source = open('source.template', 'r').read()
+    template_header = open('../res/header.template', 'r').read()
+    template_source = open('../res/source.template', 'r').read()
 
     # Substitui os parâmetros no cabeçalho, declarando as variáveis globais e a enumeração de categorias
-    with open('header.h', 'w') as f:
+    with open('../header.h', 'w') as f:
         f.write(template_header.format_map({
             **params,
             'categories': ',\n'.join([f'\t{category} = {i}' for i, category in enumerate(categories)]),
         }))
 
-    with open('header.cpp', 'w') as f:
+    with open('../header.cpp', 'w') as f:
         # Função auxiliar para converter um dicionário char->int no código em C++ correspondente
         def transition_table(state):
             return 'std::unordered_map<char, int>({{ {transitions} }})'.format_map({
@@ -106,8 +104,11 @@ def main():
             'keywords': ',\n'.join([f'\t{{"{kw}", {tc}}}' for kw, tc in keywords.items()])
         }))
 
-    with open('token_table.tex', 'w') as f:
+    with open('../tex/token_table.tex', 'w') as f:
         f.write('\n'.join([rf'{category} & {i} \\' for i, category in enumerate(categories)]))
+
+    with open('../tex/keywords_table.tex', 'w') as f:
+        f.write(' & \n'.join([f'{{{keyword}}}' for keyword in keywords]))
 
 
 if __name__ == '__main__':

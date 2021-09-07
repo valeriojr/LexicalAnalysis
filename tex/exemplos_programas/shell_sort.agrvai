@@ -13,7 +13,7 @@ func shell_sort(int n, int[] values) -> int[] {
             for(int i in [start + c ... n] by c) {
                 int current_value = values[i];
                 int position = i;
-
+            
                 while (position >= c && values[position - c] > current_values) {
                     values[position] = values[position - c];
                     position = position - c;

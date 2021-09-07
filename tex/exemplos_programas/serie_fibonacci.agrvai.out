@@ -1,0 +1,122 @@
+`// Serie de Fibonacci`
+`//`
+`// Dado um valor limite lista todos os numeros`
+`// da serie de Fibonacci menores que ele`
+`// separados por virgula`
+`//`
+`// Criado por Valerio Nogueira em 31/08/2021`
+``
+`proc fibonacci(int limite) {`
+              [0009, 0001] (0014,           Identifier) {proc}
+              [0009, 0006] (0014,           Identifier) {fibonacci}
+              [0009, 0015] (0034,      OpenParenthesis) {(}
+              [0009, 0016] (0044,              TypeInt) {int}
+              [0009, 0020] (0014,           Identifier) {limite}
+              [0009, 0026] (0006,     CloseParenthesis) {)}
+              [0009, 0028] (0032,           OpenBraces) {{}
+`    int a = 1;`
+              [0010, 0005] (0044,              TypeInt) {int}
+              [0010, 0009] (0014,           Identifier) {a}
+              [0010, 0011] (0000,           Assignment) {=}
+              [0010, 0013] (0017,              Integer) {1}
+              [0010, 0014] (0038,            SemiColon) {;}
+`    int b = 1;`
+              [0011, 0005] (0044,              TypeInt) {int}
+              [0011, 0009] (0014,           Identifier) {b}
+              [0011, 0011] (0000,           Assignment) {=}
+              [0011, 0013] (0017,              Integer) {1}
+              [0011, 0014] (0038,            SemiColon) {;}
+`    int c = a + b;`
+              [0012, 0005] (0044,              TypeInt) {int}
+              [0012, 0009] (0014,           Identifier) {c}
+              [0012, 0011] (0000,           Assignment) {=}
+              [0012, 0013] (0014,           Identifier) {a}
+              [0012, 0015] (0018,                OpAdd) {+}
+              [0012, 0017] (0014,           Identifier) {b}
+              [0012, 0018] (0038,            SemiColon) {;}
+``
+`    print(a, ", ", b);`
+              [0014, 0005] (0035,                Print) {print}
+              [0014, 0010] (0034,      OpenParenthesis) {(}
+              [0014, 0011] (0014,           Identifier) {a}
+              [0014, 0012] (0007,                Comma) {,}
+              [0014, 0014] (0040,               String) {", "}
+              [0014, 0018] (0007,                Comma) {,}
+              [0014, 0020] (0014,           Identifier) {b}
+              [0014, 0021] (0006,     CloseParenthesis) {)}
+              [0014, 0022] (0038,            SemiColon) {;}
+`    while (c < limite) {`
+              [0015, 0005] (0047,                While) {while}
+              [0015, 0011] (0034,      OpenParenthesis) {(}
+              [0015, 0012] (0014,           Identifier) {c}
+              [0015, 0014] (0024,                 OpLt) {<}
+              [0015, 0016] (0014,           Identifier) {limite}
+              [0015, 0022] (0006,     CloseParenthesis) {)}
+              [0015, 0024] (0032,           OpenBraces) {{}
+`        print(c, ", ");`
+              [0016, 0009] (0035,                Print) {print}
+              [0016, 0014] (0034,      OpenParenthesis) {(}
+              [0016, 0015] (0014,           Identifier) {c}
+              [0016, 0016] (0007,                Comma) {,}
+              [0016, 0018] (0040,               String) {", "}
+              [0016, 0022] (0006,     CloseParenthesis) {)}
+              [0016, 0023] (0038,            SemiColon) {;}
+`        a = b;`
+              [0017, 0009] (0014,           Identifier) {a}
+              [0017, 0011] (0000,           Assignment) {=}
+              [0017, 0013] (0014,           Identifier) {b}
+              [0017, 0014] (0038,            SemiColon) {;}
+`        b = c;`
+              [0018, 0009] (0014,           Identifier) {b}
+              [0018, 0011] (0000,           Assignment) {=}
+              [0018, 0013] (0014,           Identifier) {c}
+              [0018, 0014] (0038,            SemiColon) {;}
+`        c = a + b;`
+              [0019, 0009] (0014,           Identifier) {c}
+              [0019, 0011] (0000,           Assignment) {=}
+              [0019, 0013] (0014,           Identifier) {a}
+              [0019, 0015] (0018,                OpAdd) {+}
+              [0019, 0017] (0014,           Identifier) {b}
+              [0019, 0018] (0038,            SemiColon) {;}
+`    }`
+              [0020, 0005] (0004,          CloseBraces) {}}
+`}`
+              [0021, 0001] (0004,          CloseBraces) {}}
+``
+`func main(string[] args) -> int {`
+              [0023, 0001] (0014,           Identifier) {func}
+              [0023, 0006] (0014,           Identifier) {main}
+              [0023, 0010] (0034,      OpenParenthesis) {(}
+              [0023, 0011] (0045,           TypeString) {string}
+              [0023, 0017] (0033,         OpenBrackets) {[}
+              [0023, 0018] (0005,        CloseBrackets) {]}
+              [0023, 0020] (0014,           Identifier) {args}
+              [0023, 0024] (0006,     CloseParenthesis) {)}
+              [0023, 0026] (0031,                OpSub) {-}
+              [0023, 0027] (0022,                 OpGt) {>}
+              [0023, 0029] (0044,              TypeInt) {int}
+              [0023, 0033] (0032,           OpenBraces) {{}
+`    int limite;`
+              [0024, 0005] (0044,              TypeInt) {int}
+              [0024, 0009] (0014,           Identifier) {limite}
+              [0024, 0015] (0038,            SemiColon) {;}
+`    scan(limite);`
+              [0025, 0005] (0037,                 Scan) {scan}
+              [0025, 0009] (0034,      OpenParenthesis) {(}
+              [0025, 0010] (0014,           Identifier) {limite}
+              [0025, 0016] (0006,     CloseParenthesis) {)}
+              [0025, 0017] (0038,            SemiColon) {;}
+``
+`    fibonacci(limite);`
+              [0027, 0005] (0014,           Identifier) {fibonacci}
+              [0027, 0014] (0034,      OpenParenthesis) {(}
+              [0027, 0015] (0014,           Identifier) {limite}
+              [0027, 0021] (0006,     CloseParenthesis) {)}
+              [0027, 0022] (0038,            SemiColon) {;}
+``
+`    return 0;`
+              [0029, 0005] (0036,               Return) {return}
+              [0029, 0012] (0017,              Integer) {0}
+              [0029, 0013] (0038,            SemiColon) {;}
+`}`
+              [0030, 0001] (0004,          CloseBraces) {}}

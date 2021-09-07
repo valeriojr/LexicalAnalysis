@@ -1,0 +1,61 @@
+\section{Especificação da linguagem}
+\label{sec:estrutura-geral}
+
+\subsection{Estrutura geral}
+\label{subsec:estrutura-geral}
+Um programa escrito na linguagem Agoravai precisa conter uma função chamada \texttt{main} que recebe um
+\textit{array} de \textbf{strings} (argumentos da linha de comando) e retorna um código de erro (0 caso o programa
+seja executado com sucesso).
+Comentários iniciam com \texttt{//} e o restante da linha em que aparecem é ignorado.
+Um bloco de código é uma região delimitada por \texttt{\{} e \texttt{\}}.
+Variáveis podem ser declaradas globalmente (fora de qualquer função/bloco) ou localmente (dentro de uma função ou
+bloco).
+O ambiente de referenciamento da variável é o bloco a qual ela pertence no caso de váriaveis locais, e qualquer
+ponto do programa para as globais.
+Para referenciar qualquer variável em um determinado ponto do programa é necessário que essa variável tenha sido
+declarada em um ponto anterior.
+
+\subsubsection{Nomes}
+A tabela\ref{tab:palavras-reservadas} mostra as palavras reservadas da linguagem.
+Identificadores de variáveis e funções devem iniciar com uma letra ou \texttt{\textunderscore} e podem conter
+letras, dígitos ou \texttt{\textunderscore}, sem limite de caracteres e obviamente não podem estar contidos no
+conjunto das palavras reservadas.
+\begin{table}[]
+    \centering
+    \begin{tabular}{ccccc}
+        \input{keywords_table}
+    \end{tabular}
+    \caption{Palavras reservadas}
+    \label{tab:palavras-reservadas}
+\end{table}
+
+\subsubsection{Declarações}
+\label{sec:declaracoes}
+
+\paragraph{Variáveis} Para declarar uma variável é necessário especificar o tipo e o nome dela.
+Opcionalmente, é possível inicializá-la com uma expressão cujo resultado seja do mesmo tipo da variável ou pode
+sofrer uma coerção para ele.
+Também é possível declarar mais de uma variável do mesmo tipo em uma única sentença, separando-as por vírgula.
+Ex.: \texttt{\textbf{int} a;}, \texttt{\textbf{int} a = 1}, \texttt{\textbf{int} b = 2, c = 4;} e
+\texttt{\textbf{int} d = b + c}.
+
+\paragraph{Subprogramas} Subprogramas podem ser procedimentos ou funções.
+A sintaxe de declaração de um subprograma é mostrada na listagem \ref{lst:subprogramas}
+O retorno da função deve ser uma expressão compatível com o tipo declarado na assinatura da função.
+Para mais informações sobre subprogramas ver seção \ref{sec:funcoes}.
+\begin{lstlisting}[language=C, caption=Declaração de subprogramas, label=lst:subprogramas]
+        // Procedimento
+        void my_procedure(int a) {
+            ...
+        }
+
+        // Funcao
+        int my_func(int a) {
+            ...
+            return (int) ...;
+        }
+\end{lstlisting}
+\input{secoes/especificacao_de_tipos}
+\input{secoes/instrucoes}
+\input{secoes/funcoes}
+\input{secoes/exemplos_programas}

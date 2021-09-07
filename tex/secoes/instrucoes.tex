@@ -1,0 +1,119 @@
+\subsection{Instruções}
+
+\subsubsection{Estrutura condicional}
+Estruturas condicionais são sentenças que realizam desvios no fluxo do programa dependendo do valor de uma expressão
+booleana.
+A seguir são apresentadas as estruturas condicionais de uma via e de duas vias.
+
+\paragraph{De uma via}
+A listagem \ref{lst:condicional-1-via} mostra a estrutura condicional de uma via.
+Se \texttt{expressao} for \texttt{true}, o fluxo do programa segue para a sentença ou bloco após o \texttt{)}.
+Caso contrário, o fluxo é desviado para depois da sentença ou bloco seguinte.
+
+\begin{lstlisting}[language=C, caption=Estrutura condicional de uma via, label=lst:condicional-1-via]
+    if (<expressao)
+        <sentenca>
+    if (<expressao>) {
+        <lista de sentencas>
+    }
+\end{lstlisting}
+
+\paragraph{De duas vias}
+A listagem \ref{lst:condicional-2-vias} mostra a estrutura condicional de duas vias.
+A diferença para a estrutura de uma via é a palavra \texttt{else} após o bloco ou sentença da 1ª via.
+De maneira semelhante, o bloco ou sentença que aparece diretamente após o \texttt{else} só será executado(a) se a
+expressão da 1ª via for \texttt{false}.
+
+\begin{lstlisting}[language=C, caption=Estrutura condicional de uma via, label=lst:condicional-2-vias]
+    if (<expressão>) {
+        ...
+    }
+    else if (<expressão>) { // Como a sentenca if vem depois do else, o else mais abaixo corresponde a esse if
+        ...
+    }
+    else {
+        ...
+    }
+\end{lstlisting}
+
+\subsubsection{Estrutura iterativa}
+As estruturas iterativas repetem um bloco ou sentença. Há dois tipos de desvio incondicional dentro de uma estrutura dessa.
+O comando \texttt{\textbf{break}} desvia para depois do laço mais próximo e o comando \texttt{\textbf{skip}} desvia do
+ponto atual no bloco para o teste e consequentemente a próxima iteração. Nos dois casos mostrados a seguir a avaliação
+dos laços é pré-teste.
+
+\paragraph{com controle lógico}
+\begin{lstlisting}[language=C, caption=Estrutura iterativa com controle lógico, label=lst:iterativa-logico]
+    while(<expressão>) {
+        ...
+    }
+\end{lstlisting}
+
+\paragraph{por contador}
+A iteração por contador é mostrada na listagem \ref{lst:iteracao-contador}.
+Com ela é possível iterar sobre intervalos (\textit{strings}, \textit{arrays} e intervalos numéricos).
+\texttt{tipo do contador} representa o tipo de cada elemento do conjunto (\texttt{char} para \textit{strings} e
+tipo correspondente do \textit{array} ou intervalo numérico) e \texttt{nome do contador} representa o nome que
+poderá ser usado pelo programador para se referir ao contador.
+Para declarar um intervalo numérico é necessário no mínimo uma expressão do tipo correspondente.
+Nesse caso entende-se que o valor inicial é 0 e o incremento igual a 1.
+A sintaxe utilizada é demonstrada na listagem\ref{lst:iterativa-contador}.
+Também é possível especificar um valor inicial e um valor de incremento.
+O valor de incremento é deduzido a partir da diferença entre o primeiro e segundo valores.
+Caso o segundo valor seja omitido, pressupõe-se que o valor de incremento é 1.
+Os tipos permitidos nesse tipo de construção são: \texttt{char}, \texttt{int} e \texttt{float}.
+
+\begin{lstlisting}[language=C, caption=Estrutura iterativa por contador, label=lst:iterativa-contador]
+    for(<tipo do contador> <nome do contador> in <intervalo>)
+        <sentenca>
+
+    for(<tipo do contador> <nome do contador> in <intervalo>) {
+        <lista de sentencas>
+    }
+
+    // Ex.:
+    for(int i in [1, 2, 3]) {
+        ...
+    }
+
+    for(char c in "Ola mundo") {
+        ...
+    }
+
+    // Notacao de intervalo para tipos numericos
+    // [<inicio>, ..., <fim>) de <inicio> ate <fim> - 1
+    // [<inicio>, <segundo>, ..., <fim>) de inicio ate fim - 1, de g em g, onde g eh igual a (<segundo> - <inicio>)
+    for (int i in [1, ..., 20)) { // 1, 2, 3, ..., 18 e 19
+        ...
+    }
+    for (int i in [1, 5, ..., 20] { // 1, 5, 10
+        ...
+    }
+\end{lstlisting}
+
+\subsubsection{Entrada}
+A entrada é feita através do comando \texttt{\textbf{scan}}. Ele recebe uma lista com as variáveis que receberão os
+valores lidos, na ordem em que são passados. Opcionalmente é possível passar uma \textbf{string} como formato para ser
+lido imediatamente à esquerda.
+
+\begin{lstlisting}[language=C, caption=Comando \texttt{scan}, label=lst:entrada]
+        int a;
+        string s;
+        
+        scan(a, "%[^\n]" s);
+\end{lstlisting}
+
+\subsubsection{Saída}A saída é feita através do comando \texttt{\textbf{print}}.
+Ele recebe uma lista com as expressões que serão impressas, na ordem em que são passadas.
+Opcionalmente é possível passar uma \textbf{string} como formato para ser impresso imediatamente à esquerda.
+
+\begin{lstlisting}[language=C, caption=Comando \texttt{print}, lst:saida]
+        int a = 10;
+        string s = "agora vai";
+        
+        print(a, "%20" s);
+\end{lstlisting}
+
+\subsubsection{Atribuição}
+A atribuição (\texttt{=}) é um operador com precedência 0 e associatividade à direita. O operando à esquerda deve ser o
+identificador de uma variável e à direita uma expressão que resulte num tipo compatível com o da variável.

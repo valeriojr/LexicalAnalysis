@@ -1,0 +1,66 @@
+\section{Especificação dos tokens}
+Os analisadores léxico e sintático serão implementados na linguagem C++.
+A máquina de estados do analisador léxico (único implementado no momento) foi feita utilizando a ferramenta
+\textit{Finite State Machine Designer} (https://www.cs.unc.edu/~otternes/comp455/fsm\textunderscore designer/) e
+através de um \textit{script} \textit{Python} um arquivo contendo a tabela de transições é gerado e utilizado no
+programa principal.
+A tabela \ref{tab:tokens} mostra os nomes simbólicos dos \textit{tokens} acompanhados de seus valores numéricos.
+A figura \ref{fig:maquina_estados} mostra a máquina de estados construída.
+A ferramenta possibilita a exportação no formato \textit{json}, que é utilizado para a geração dos arquivos.
+\begin{center}
+
+    \begin{longtable}[c]{ | l | r | }
+        \label{tab:tokens}
+        \caption{Enumeração das categorias dos \textit{tokens}.}
+        \endfirsthead
+        \endhead
+        \endfoot
+        \endlastfoot
+        \hline
+        Nome simbólico & Valor numérico \\
+        \hline
+        \include{token_table}
+        \hline
+    \end{longtable}
+\end{center}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth, caption=]{imagens/state_machine}
+    \caption{Máquina de estados do autômato}
+    \label{fig:maquina_estados}
+\end{figure}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{ | c | c |}
+        \hline
+        Padrão & Expressão regular                         \\
+        \hline
+        dig    & \texttt{'[1-9]'}                          \\
+        Dig    & \texttt{'[0-9]'}                          \\
+        let    & \texttt{'[a-zA-Z]'}                       \\
+        char   & \texttt{[\textbackslash n-~]}
+        \hline
+    \end{tabular}
+    \caption{Expressões regulares auxiliares}
+    \label{tab:expressoes-auxiliares}
+\end{table}
+
+
+\begin{center}
+    \centering
+    \begin{longtable}[c]{ | l | c | }
+        \label{tab:expressoes-regulares}
+        \caption{Expressões regulares das categorias dos \textit{tokens}.}
+        \endfirsthead
+        \endhead
+        \endfoot
+        \endlastfoot
+        \hline
+        Categoria & Expressão regular\\
+        \hline
+        \input{regex_table}
+        \hline
+    \end{longtable}
+\end{center}
