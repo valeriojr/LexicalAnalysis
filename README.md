@@ -8,4 +8,4 @@
 * ```run_examples.bat```: executa o analisador com os exemplos, salva a saída num arquivo e compila o PDF com a especificação (main.pdf)
 
 # Visão geral
-[Visão geral](res/overview.png)
+![Visão geral](res/overview.png)
