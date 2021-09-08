@@ -9,11 +9,11 @@ seja executado com sucesso).
 Comentários iniciam com \texttt{//} e o restante da linha em que aparecem é ignorado.
 Um bloco de código é uma região delimitada por \texttt{\{} e \texttt{\}}.
 Variáveis podem ser declaradas globalmente (fora de qualquer função/bloco) ou localmente (dentro de uma função ou
-bloco).
+bloco), assim como subprogramas.
 O ambiente de referenciamento da variável é o bloco a qual ela pertence no caso de váriaveis locais, e qualquer
 ponto do programa para as globais.
 Para referenciar qualquer variável em um determinado ponto do programa é necessário que essa variável tenha sido
-declarada em um ponto anterior.
+declarada em um ponto anterior. Funções e variáveis podem ser declaradas
 
 \subsubsection{Nomes}
 A tabela\ref{tab:palavras-reservadas} mostra as palavras reservadas da linguagem.
@@ -55,6 +55,12 @@ Para mais informações sobre subprogramas ver seção \ref{sec:funcoes}.
             return (int) ...;
         }
 \end{lstlisting}
+
+
+A listagem \ref{lst:estrutura-basica} mostra exemplos de construções da linguagem.
+
+\lstinputlisting[caption=Estrutura básica da linguagem Agoravai, label=lst:estrutura-basica]{estrutura_basica.agrvai}
+
 \input{secoes/especificacao_de_tipos}
 \input{secoes/instrucoes}
 \input{secoes/funcoes}

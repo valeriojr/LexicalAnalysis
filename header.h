@@ -1,5 +1,5 @@
 /*
-    Auto generated on 06/09/2021
+    Auto generated on 08/09/2021
 */
 
 #pragma once
@@ -7,8 +7,8 @@
 #include <unordered_map>
 
 #define TOKEN_CATEGORY_NAME_MAX_LEN 20
-#define TOKEN_CATEGORY_COUNT 48
-#define STATE_COUNT 44
+#define TOKEN_CATEGORY_COUNT 49
+#define STATE_COUNT 45
 
 
 enum TokenCategory {
@@ -33,34 +33,35 @@ enum TokenCategory {
 	Integer = 17,
 	OpAdd = 18,
 	OpAnd = 19,
-	OpDiv = 20,
-	OpEq = 21,
-	OpGt = 22,
-	OpGte = 23,
-	OpLt = 24,
-	OpLte = 25,
-	OpMod = 26,
-	OpMul = 27,
-	OpNeq = 28,
-	OpNot = 29,
-	OpOr = 30,
-	OpSub = 31,
-	OpenBraces = 32,
-	OpenBrackets = 33,
-	OpenParenthesis = 34,
-	Print = 35,
-	Return = 36,
-	Scan = 37,
-	SemiColon = 38,
-	Skip = 39,
-	String = 40,
-	TypeBool = 41,
-	TypeChar = 42,
-	TypeFloat = 43,
-	TypeInt = 44,
-	TypeString = 45,
-	Void = 46,
-	While = 47
+	OpConcatenate = 20,
+	OpDiv = 21,
+	OpEq = 22,
+	OpGt = 23,
+	OpGte = 24,
+	OpLt = 25,
+	OpLte = 26,
+	OpMod = 27,
+	OpMul = 28,
+	OpNeq = 29,
+	OpNot = 30,
+	OpOr = 31,
+	OpSub = 32,
+	OpenBraces = 33,
+	OpenBrackets = 34,
+	OpenParenthesis = 35,
+	Print = 36,
+	Return = 37,
+	Scan = 38,
+	SemiColon = 39,
+	Skip = 40,
+	String = 41,
+	TypeBool = 42,
+	TypeChar = 43,
+	TypeFloat = 44,
+	TypeInt = 45,
+	TypeString = 46,
+	Void = 47,
+	While = 48
 };
 
 

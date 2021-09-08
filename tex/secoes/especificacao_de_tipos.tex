@@ -10,13 +10,14 @@ Os únicos valores possíveis são \texttt{true} (verdadeiro) e \texttt{false} (
 \begin{table}[!h]
     \centering
     \begin{tabular}{ l c c l }
-        Operador      & Associatividade & Precedência & Descrição                \\
+        Operador      & Associatividade & Precedência & Descrição                                                        \\
         \hline
-        \texttt{==}   & Esquerda & 1 & \texttt{a} é igual a \texttt{b}?          \\
-        \texttt{!=}   & Esquerda & 1 & \texttt{a} é diferente de \texttt{b}?     \\
-        \texttt{\&\&}   & Esquerda & 2 & \texttt{a} e \texttt{b} são verdadeiros?  \\
-        \texttt{||}   & Esquerda & 2 & \texttt{a} ou \texttt{b} são verdadeiros? \\
-        \texttt{!}    & Direita  & 3 & o inverso de \texttt{a}                   \\
+        \texttt{==}   & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?                                 \\
+        \texttt{!=}   & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?                            \\
+        \texttt{\&\&} & Esquerda        & 2           & \texttt{a} e \texttt{b} são verdadeiros?                         \\
+        \texttt{||}   & Esquerda        & 2           & \texttt{a} ou \texttt{b} são verdadeiros?                        \\
+        \texttt{!}    & Direita         & 3           & o inverso de \texttt{a}                                          \\
+        \texttt{++}   & Esquerda        & 2           & concatena a \textbf{string} que representa o valor de \texttt{a} \\
         \hline
     \end{tabular}
     \caption{Operadores do tipo \textbf{bool}}
@@ -44,10 +45,15 @@ Representa um caractere. O caractere deve pertencer à tabela ASCII. Caracteres 
 \begin{table}[!h]
     \begin{tabular}{@{}llll@{}}
         \toprule
-        Operador    & Associatividade & Precedência & Descrição                                                    \\ \midrule
-        \texttt{==} & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?                             \\
-        \texttt{!=} & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?                        \\
-        \texttt{+}  & Esquerda        & 2           & \textbf{string} composta de \texttt{a} seguido de \texttt{b}
+        Operador                 & Associatividade & Precedência & Descrição                                                    \\
+        \midrule
+        \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?                                                  \\
+        \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?                                             \\
+        \texttt{\textless{}}     & Esquerda        & 1           & \texttt{a} é menor que \texttt{b}?                                   \\
+        \texttt{\textless{}=}    & Esquerda        & 1           & \texttt{a} é menor ou igual a \texttt{b}?                            \\
+        \texttt{\textgreater{}}  & Esquerda        & 1           & \texttt{a} é maior que \texttt{b}?                                   \\
+        \texttt{\textgreater{}=} & Esquerda        & 1           & \texttt{a} é maior ou igual a \texttt{b}?                            \\
+        \texttt{++}              & Esquerda        & 2           & \textbf{string} resultado da concatenação de \texttt{a} e \texttt{b}
     \end{tabular}
     \caption{Operadores do tipo \textbf{char}}
     \label{tab:operadores-char}
@@ -74,18 +80,22 @@ Representa números inteiros.
 \begin{table}[!h]
     \begin{tabular}{@{}llll@{}}
         \toprule
-        Operador                 & Associatividade & Precedência & Descrição                                     \\ \midrule
-        \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?              \\
-        \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?         \\
-        \texttt{\textless{}}     &                 & 1           & \texttt{a} é menor que \texttt{b}?            \\
-        \texttt{\textless{}=}    &                 & 1           & \texttt{a} é menor ou igual a \texttt{b}?     \\
-        \texttt{\textgreater{}}  &                 & 1           & \texttt{a} é maior que \texttt{b}?            \\
-        \texttt{\textgreater{}=} &                 & 1           & \texttt{a} é maior ou igual a \texttt{b}?     \\
-        \texttt{+}               & Esquerda        & 2           & soma de \texttt{a} e \texttt{b}               \\
-        \texttt{-}               & Esquerda        & 2           & subtração de \texttt{a} por \texttt{b}        \\
-        \texttt{$*$}             & Direita         & 3           & produto de \texttt{a} e \texttt{b}            \\
-        \texttt{/}               & Direita         & 3           & divisão de \texttt{a} por \texttt{b}          \\
-        \texttt{\%}              & Direita         & 4           & resto da divisão de \texttt{a} por \texttt{b}
+        Operador                 & Associatividade & Precedência & Descrição                                                         \\
+        \midrule
+        \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?                                  \\
+        \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?                             \\
+        \texttt{\textless{}}     & Esquerda        & 1           & \texttt{a} é menor que \texttt{b}?                                \\
+        \texttt{\textless{}=}    & Esquerda        & 1           & \texttt{a} é menor ou igual a \texttt{b}?                         \\
+        \texttt{\textgreater{}}  & Esquerda        & 1           & \texttt{a} é maior que \texttt{b}?                                \\
+        \texttt{\textgreater{}=} & Esquerda        & 1           & \texttt{a} é maior ou igual a \texttt{b}?                         \\
+        \texttt{+}               & Esquerda        & 2           & soma de \texttt{a} e \texttt{b}                                   \\
+        \texttt{-}               & Esquerda        & 2           & subtração de \texttt{a} por \texttt{b}                            \\
+        \texttt{$*$}             & Esquerda        & 3           & produto de \texttt{a} e \texttt{b}                                \\
+        \texttt{/}               & Esquerda        & 3           & divisão de \texttt{a} por \texttt{b}                              \\
+        \texttt{\%}              & Esquerda        & 4           & resto da divisão de \texttt{a} por \texttt{b}                    \\
+        \texttt{++}              & Esquerda        & 2           & concatena a \textbf{string} que representa o valor de \texttt{a}  \\
+        \texttt{+} (unário)      & Direita         & 4           & não faz nada                                                      \\
+        \texttt{-} (unário)      & Direita         & 4           & oposto de \texttt{a}                                              \\
     \end{tabular}
     \caption{Operadores do tipo \textbf{int}}
     \label{tab:operadores-int}
@@ -116,14 +126,17 @@ Representa números reais.
         Operador                 & Associatividade & Precedência & Descrição                                 \\ \midrule
         \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?          \\
         \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?     \\
-        \texttt{\textless{}}     &                 & 1           & \texttt{a} é menor que \texttt{b}?        \\
-        \texttt{\textless{}=}    &                 & 1           & \texttt{a} é menor ou igual a \texttt{b}? \\
-        \texttt{\textgreater{}}  &                 & 1           & \texttt{a} é maior que \texttt{b}?        \\
-        \texttt{\textgreater{}=} &                 & 1           & \texttt{a} é maior ou igual a \texttt{b}? \\
+        \texttt{\textless{}}     & Esquerda        & 1           & \texttt{a} é menor que \texttt{b}?        \\
+        \texttt{\textless{}=}    & Esquerda        & 1           & \texttt{a} é menor ou igual a \texttt{b}? \\
+        \texttt{\textgreater{}}  & Esquerda        & 1           & \texttt{a} é maior que \texttt{b}?        \\
+        \texttt{\textgreater{}=} & Esquerda        & 1           & \texttt{a} é maior ou igual a \texttt{b}? \\
         \texttt{+}               & Esquerda        & 2           & soma de \texttt{a} e \texttt{b}           \\
         \texttt{-}               & Esquerda        & 2           & subtração de \texttt{a} por \texttt{b}    \\
-        \texttt{$*$}             & Direita         & 3           & produto de \texttt{a} e \texttt{b}        \\
-        \texttt{/}               & Direita         & 3           & divisão de \texttt{a} por \texttt{b}      \\
+        \texttt{$*$}             & Esquerda        & 3           & produto de \texttt{a} e \texttt{b}        \\
+        \texttt{/}               & Esquerda        & 3           & divisão de \texttt{a} por \texttt{b}      \\
+        \texttt{++}              & Esquerda        & 2           & concatena a \textbf{string} que representa o valor de \texttt{a}\\
+        \texttt{+} (unário)      & Direita         & 4           & não faz nada                                                      \\
+        \texttt{-} (unário)      & Direita         & 4           & oposto de \texttt{a}
     \end{tabular}
     \caption{Operadores do tipo \textbf{float}}
     \label{tab:operadores-float}
@@ -152,11 +165,11 @@ Representa uma cadeia de caracteres.
         Operador                 & Associatividade & Precedência & Descrição                                      \\ \midrule
         \texttt{==}              & Esquerda        & 1           & \texttt{a} é igual a \texttt{b}?               \\
         \texttt{!=}              & Esquerda        & 1           & \texttt{a} é diferente de \texttt{b}?          \\
-        \texttt{\textless{}}     &                 & 1           & \texttt{a} vem antes de \texttt{b}?            \\
-        \texttt{\textless{}=}    &                 & 1           & \texttt{a} vem antes ou é igual a \texttt{b}?  \\
-        \texttt{\textgreater{}}  &                 & 1           & \texttt{a} vem depois de \texttt{b}?           \\
-        \texttt{\textgreater{}=} &                 & 1           & \texttt{a} vem depois ou é igual a \texttt{b}? \\
-        \texttt{+}               & Esquerda        & 2           & concatenação de \texttt{a} e \texttt{b}        \\
+        \texttt{\textless{}}     & Esquerda        & 1           & \texttt{a} vem antes de \texttt{b}?            \\
+        \texttt{\textless{}=}    & Esquerda        & 1           & \texttt{a} vem antes ou é igual a \texttt{b}?  \\
+        \texttt{\textgreater{}}  & Esquerda        & 1           & \texttt{a} vem depois de \texttt{b}?           \\
+        \texttt{\textgreater{}=} & Esquerda        & 1           & \texttt{a} vem depois ou é igual a \texttt{b}? \\
+        \texttt{++}              & Esquerda        & 2           & concatenação de \texttt{a} e \texttt{b}        \\
     \end{tabular}
     \caption{Operadores do tipo \textbf{string}}
     \label{tab:operadores-string}
@@ -202,4 +215,4 @@ Representa uma coleção homôgenea de valores com tamanho fixo. A declaração 
     \label{tab:coercoes-array}
 \end{table}
 
-Para \textit{arrays} e \textbf{strings}, é possível acessar o $i$-ésimo elemento através de \texttt{[<indice>]}.
+Para \textit{arrays} e \textbf{strings}, é possível acessar/alterar o $i$-ésimo elemento através de \texttt{[<indice>]}.
