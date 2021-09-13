@@ -4,7 +4,7 @@
 //
 // Criado por Valerio Nogueira em 31/08/2021
 
-func main(string[] args) -> int {
+int main(string[] args) {
     print("Ola mundo!");
 
     return 0;

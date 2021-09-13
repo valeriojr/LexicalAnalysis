@@ -4,19 +4,16 @@
 `//`
 `// Criado por Valerio Nogueira em 31/08/2021`
 ``
-`func main(string[] args) -> int {`
-              [0007, 0001] (0014,           Identifier) {func}
-              [0007, 0006] (0014,           Identifier) {main}
-              [0007, 0010] (0035,      OpenParenthesis) {(}
-              [0007, 0011] (0046,           TypeString) {string}
-              [0007, 0017] (0034,         OpenBrackets) {[}
-              [0007, 0018] (0005,        CloseBrackets) {]}
-              [0007, 0020] (0014,           Identifier) {args}
-              [0007, 0024] (0006,     CloseParenthesis) {)}
-              [0007, 0026] (0032,                OpSub) {-}
-              [0007, 0027] (0023,                 OpGt) {>}
-              [0007, 0029] (0045,              TypeInt) {int}
-              [0007, 0033] (0033,           OpenBraces) {{}
+`int main(string[] args) {`
+              [0007, 0001] (0045,              TypeInt) {int}
+              [0007, 0005] (0014,           Identifier) {main}
+              [0007, 0009] (0035,      OpenParenthesis) {(}
+              [0007, 0010] (0046,           TypeString) {string}
+              [0007, 0016] (0034,         OpenBrackets) {[}
+              [0007, 0017] (0005,        CloseBrackets) {]}
+              [0007, 0019] (0014,           Identifier) {args}
+              [0007, 0023] (0006,     CloseParenthesis) {)}
+              [0007, 0025] (0033,           OpenBraces) {{}
 `    print("Ola mundo!");`
               [0008, 0005] (0036,                Print) {print}
               [0008, 0010] (0035,      OpenParenthesis) {(}

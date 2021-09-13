@@ -6,8 +6,8 @@
 `//`
 `// Criado por Valerio Nogueira em 31/08/2021`
 ``
-`proc fibonacci(int limite) {`
-              [0009, 0001] (0014,           Identifier) {proc}
+`void fibonacci(int limite) {`
+              [0009, 0001] (0047,                 Void) {void}
               [0009, 0006] (0014,           Identifier) {fibonacci}
               [0009, 0015] (0035,      OpenParenthesis) {(}
               [0009, 0016] (0045,              TypeInt) {int}
@@ -83,19 +83,16 @@
 `}`
               [0021, 0001] (0004,          CloseBraces) {}}
 ``
-`func main(string[] args) -> int {`
-              [0023, 0001] (0014,           Identifier) {func}
-              [0023, 0006] (0014,           Identifier) {main}
-              [0023, 0010] (0035,      OpenParenthesis) {(}
-              [0023, 0011] (0046,           TypeString) {string}
-              [0023, 0017] (0034,         OpenBrackets) {[}
-              [0023, 0018] (0005,        CloseBrackets) {]}
-              [0023, 0020] (0014,           Identifier) {args}
-              [0023, 0024] (0006,     CloseParenthesis) {)}
-              [0023, 0026] (0032,                OpSub) {-}
-              [0023, 0027] (0023,                 OpGt) {>}
-              [0023, 0029] (0045,              TypeInt) {int}
-              [0023, 0033] (0033,           OpenBraces) {{}
+`int main(string[] args) {`
+              [0023, 0001] (0045,              TypeInt) {int}
+              [0023, 0005] (0014,           Identifier) {main}
+              [0023, 0009] (0035,      OpenParenthesis) {(}
+              [0023, 0010] (0046,           TypeString) {string}
+              [0023, 0016] (0034,         OpenBrackets) {[}
+              [0023, 0017] (0005,        CloseBrackets) {]}
+              [0023, 0019] (0014,           Identifier) {args}
+              [0023, 0023] (0006,     CloseParenthesis) {)}
+              [0023, 0025] (0033,           OpenBraces) {{}
 `    int limite;`
               [0024, 0005] (0045,              TypeInt) {int}
               [0024, 0009] (0014,           Identifier) {limite}

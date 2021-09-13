@@ -4,24 +4,21 @@
 `//`
 `// Criado por Valerio Nogueira em 01/08/2021 (Adaptado de https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OShellSort.html)`
 ``
-`func shell_sort(int n, int[] values) -> int[] {`
-              [0007, 0001] (0014,           Identifier) {func}
-              [0007, 0006] (0014,           Identifier) {shell_sort}
-              [0007, 0016] (0035,      OpenParenthesis) {(}
-              [0007, 0017] (0045,              TypeInt) {int}
-              [0007, 0021] (0014,           Identifier) {n}
-              [0007, 0022] (0007,                Comma) {,}
-              [0007, 0024] (0045,              TypeInt) {int}
-              [0007, 0027] (0034,         OpenBrackets) {[}
-              [0007, 0028] (0005,        CloseBrackets) {]}
-              [0007, 0030] (0014,           Identifier) {values}
-              [0007, 0036] (0006,     CloseParenthesis) {)}
-              [0007, 0038] (0032,                OpSub) {-}
-              [0007, 0039] (0023,                 OpGt) {>}
-              [0007, 0041] (0045,              TypeInt) {int}
-              [0007, 0044] (0034,         OpenBrackets) {[}
-              [0007, 0045] (0005,        CloseBrackets) {]}
-              [0007, 0047] (0033,           OpenBraces) {{}
+`int[] shell_sort(int n, int[] values) {`
+              [0007, 0001] (0045,              TypeInt) {int}
+              [0007, 0004] (0034,         OpenBrackets) {[}
+              [0007, 0005] (0005,        CloseBrackets) {]}
+              [0007, 0007] (0014,           Identifier) {shell_sort}
+              [0007, 0017] (0035,      OpenParenthesis) {(}
+              [0007, 0018] (0045,              TypeInt) {int}
+              [0007, 0022] (0014,           Identifier) {n}
+              [0007, 0023] (0007,                Comma) {,}
+              [0007, 0025] (0045,              TypeInt) {int}
+              [0007, 0028] (0034,         OpenBrackets) {[}
+              [0007, 0029] (0005,        CloseBrackets) {]}
+              [0007, 0031] (0014,           Identifier) {values}
+              [0007, 0037] (0006,     CloseParenthesis) {)}
+              [0007, 0039] (0033,           OpenBraces) {{}
 `    int c = n / 2;`
               [0008, 0005] (0045,              TypeInt) {int}
               [0008, 0009] (0014,           Identifier) {c}
@@ -158,19 +155,16 @@
 `}`
               [0028, 0001] (0004,          CloseBraces) {}}
 ``
-`func main(string[] args) -> int {`
-              [0030, 0001] (0014,           Identifier) {func}
-              [0030, 0006] (0014,           Identifier) {main}
-              [0030, 0010] (0035,      OpenParenthesis) {(}
-              [0030, 0011] (0046,           TypeString) {string}
-              [0030, 0017] (0034,         OpenBrackets) {[}
-              [0030, 0018] (0005,        CloseBrackets) {]}
-              [0030, 0020] (0014,           Identifier) {args}
-              [0030, 0024] (0006,     CloseParenthesis) {)}
-              [0030, 0026] (0032,                OpSub) {-}
-              [0030, 0027] (0023,                 OpGt) {>}
-              [0030, 0029] (0045,              TypeInt) {int}
-              [0030, 0033] (0033,           OpenBraces) {{}
+`int main(string[] args) {`
+              [0030, 0001] (0045,              TypeInt) {int}
+              [0030, 0005] (0014,           Identifier) {main}
+              [0030, 0009] (0035,      OpenParenthesis) {(}
+              [0030, 0010] (0046,           TypeString) {string}
+              [0030, 0016] (0034,         OpenBrackets) {[}
+              [0030, 0017] (0005,        CloseBrackets) {]}
+              [0030, 0019] (0014,           Identifier) {args}
+              [0030, 0023] (0006,     CloseParenthesis) {)}
+              [0030, 0025] (0033,           OpenBraces) {{}
 `    int n;`
               [0031, 0005] (0045,              TypeInt) {int}
               [0031, 0009] (0014,           Identifier) {n}

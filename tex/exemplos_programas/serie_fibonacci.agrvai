@@ -6,7 +6,7 @@
 //
 // Criado por Valerio Nogueira em 31/08/2021
 
-proc fibonacci(int limite) {
+void fibonacci(int limite) {
     int a = 1;
     int b = 1;
     int c = a + b;
@@ -20,7 +20,7 @@ proc fibonacci(int limite) {
     }
 }
 
-func main(string[] args) -> int {
+int main(string[] args) {
     int limite;
     scan(limite);
 

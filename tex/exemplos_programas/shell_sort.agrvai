@@ -4,7 +4,7 @@
 //
 // Criado por Valerio Nogueira em 01/08/2021 (Adaptado de https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OShellSort.html)
 
-func shell_sort(int n, int[] values) -> int[] {
+int[] shell_sort(int n, int[] values) {
     int c = n / 2;
     while(c > 0) {
         for(int start in [0 ... c]) {
@@ -27,7 +27,7 @@ func shell_sort(int n, int[] values) -> int[] {
     return values;
 }
 
-func main(string[] args) -> int {
+int main(string[] args) {
     int n;
     int[] values;
 
